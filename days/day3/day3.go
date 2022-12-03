@@ -19,14 +19,14 @@ func part1() {
 		idx := len(line) / 2
 		part1 := line[:idx]
 		part2 := line[idx:]
-		union := util.Union(part1, part2)
+		intersection := util.Intersect(part1, part2)
 
-		if len(union) > 1 {
+		if len(intersection) > 1 {
 			fmt.Println(line)
 			log.Fatalln("Too many matches on line")
 		}
 
-		value += strings.Index(giftValues, string(union[0])) + 1
+		value += strings.Index(giftValues, string(intersection[0])) + 1
 	}
 
 	fmt.Printf("Total gift value: %d\n", value)
@@ -44,13 +44,13 @@ func part2() {
 	for scanner.Scan() {
 		line := []rune(scanner.Text())
 		if idx == 2 {
-			union := util.Union(groups[0], groups[1])
-			union = util.Union(union, line)
-			if len(union) > 1 {
+			intersection := util.Intersect(groups[0], groups[1])
+			intersection = util.Intersect(intersection, line)
+			if len(intersection) > 1 {
 				fmt.Println(line)
 				log.Fatalln("Too many matches on line")
 			}
-			value += strings.Index(giftValues, string(union[0])) + 1
+			value += strings.Index(giftValues, string(intersection[0])) + 1
 			idx = 0
 		} else {
 			groups[idx] = line

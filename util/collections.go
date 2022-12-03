@@ -38,7 +38,7 @@ func UniqueV2[T comparable](slice []T) (unique []T) {
 	return maps.Keys(keyMap)
 }
 
-func Union[T comparable](slice1 []T, slice2 []T) (union []T) {
+func Intersect[T comparable](slice1 []T, slice2 []T) (union []T) {
 	newSlice := make([]T, 0)
 
 	unique1 := UniqueV2(slice1)
