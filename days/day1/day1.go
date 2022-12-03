@@ -1,11 +1,11 @@
-package main
+package day1
 
 import (
 	"bufio"
 	"fmt"
 	"io"
 	"log"
-	"nate-aoc/util"
+	"nated/aoc/util"
 	"strconv"
 )
 
@@ -16,7 +16,7 @@ type FileScanner struct {
 
 func part1() {
 	fmt.Printf("\n------------ PART 1 ------------\n")
-	scanner := util.OpenFile("part1.txt")
+	scanner := util.OpenFile("days/day1/part1.txt")
 	defer scanner.Close()
 
 	elf := 0
@@ -49,7 +49,7 @@ func part1() {
 func part2() {
 	fmt.Printf("\n------------ PART 2 ------------\n")
 
-	scanner := util.OpenFile("part2.txt")
+	scanner := util.OpenFile("days/day1/part2.txt")
 	defer scanner.Close()
 
 	elf := 0
@@ -83,7 +83,7 @@ func part2() {
 	}
 }
 
-func main() {
+func Run() {
 	part1()
 	part2()
 }

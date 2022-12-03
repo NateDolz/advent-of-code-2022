@@ -1,4 +1,4 @@
-module nate-aoc/util
+module nated/aoc
 
 go 1.18
 
