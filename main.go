@@ -5,6 +5,7 @@ import (
 	"log"
 	"nated/aoc/days/day1"
 	"nated/aoc/days/day2"
+	"nated/aoc/days/day3"
 	"os"
 	"strings"
 )
@@ -16,6 +17,8 @@ func runProgram(program string) {
 		day1.Run()
 	case "day2":
 		day2.Run()
+	case "day3":
+		day3.Run()
 	default:
 		log.Printf("Could not run program %s\n", program)
 	}
