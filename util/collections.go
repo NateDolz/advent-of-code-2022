@@ -18,11 +18,11 @@ func Min[T constraints.Ordered](slice []T) (idx int, value T) {
 	return minIdx, min
 }
 
-// Memory efficient Time inefficient
-func Unique[T comparable](slice []T) (unique []T) {
+// More efficient at lower slice sizes requires type to be ordered
+func Unique[T constraints.Ordered](slice []T) (unique []T) {
 	newSlice := make([]T, 0)
 	for _, val := range slice {
-		if idx := slices.Index(newSlice, val); idx == -1 {
+		if _, found := slices.BinarySearch(newSlice, val); !found {
 			newSlice = append(newSlice, val)
 		}
 	}
@@ -38,11 +38,11 @@ func UniqueV2[T comparable](slice []T) (unique []T) {
 	return maps.Keys(keyMap)
 }
 
-func Intersect[T comparable](slice1 []T, slice2 []T) (union []T) {
+func Intersect[T constraints.Ordered](slice1 []T, slice2 []T) (union []T) {
 	newSlice := make([]T, 0)
 
-	unique1 := UniqueV2(slice1)
-	unique2 := UniqueV2(slice2)
+	unique1 := Unique(slice1)
+	unique2 := Unique(slice2)
 
 	for _, val := range unique1 {
 		if idx := slices.Index(unique2, val); idx != -1 {
