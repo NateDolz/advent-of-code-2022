@@ -59,6 +59,7 @@ func part1() {
 	fmt.Printf("\n------------ PART 1 ------------\n")
 
 	scanner := util.OpenFile("days/day4/part1.txt")
+	defer scanner.Close()
 	value := solve(scanner, isEnveloping)
 
 	fmt.Printf("Total overlaps: %d\n", value)
@@ -68,6 +69,7 @@ func part2() {
 	fmt.Printf("\n------------ PART 2 ------------\n")
 
 	scanner := util.OpenFile("days/day4/part2.txt")
+	defer scanner.Close()
 	value := solve(scanner, isOverlapping)
 
 	fmt.Printf("Total overlaps: %d\n", value)

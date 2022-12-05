@@ -14,6 +14,8 @@ func part1() {
 
 	value := 0
 	scanner := util.OpenFile("days/day3/part1.txt")
+	defer scanner.Close()
+
 	for scanner.Scan() {
 		line := []rune(scanner.Text())
 		idx := len(line) / 2
@@ -40,6 +42,7 @@ func part2() {
 	groups := make([][]rune, 2)
 
 	scanner := util.OpenFile("days/day3/part2.txt")
+	defer scanner.Close()
 
 	for scanner.Scan() {
 		line := []rune(scanner.Text())
